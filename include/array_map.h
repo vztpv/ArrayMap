@@ -355,7 +355,7 @@ namespace wiz {
 				}
 
 				if (!IsNULL(x_idx) && !hint && eq(key, tree->arr[x_idx].key)) {
-					tree->arr[x_idx].key = key;
+					//tree->arr[x_idx].key = key;
 					return x_idx;
 				}
 			}
