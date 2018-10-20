@@ -10,4 +10,5 @@ ArrayMap : std::vector + Red-Black Tree
   1. insert (lazy-insert)
   2. update (미뤄둔 삽입을 진행, 최대한 미루는 것이 좋다)
   3. remove (항목제거, O(log(n)), 제거시 shift를 하지 않고 flag를 이용하여 재활용을 함, 테스트가 더 필요함)
-  4. iterator가 있으나, 순회를 할 떄 소팅된 순서로 순회하지 않음에 주의해야한다!
+  4. iterator가 있으나, 순회를 할 떄 소팅된 순서로 순회하지 않음에 주의해야한다! 
+  5. quick sort가 병렬을 이용해야 성능이 좋게 나오는것 같다.
