@@ -1,6 +1,17 @@
 ﻿#ifndef BINARY_SEARCH_TREE_H
 #define BINARY_SEARCH_TREE_H
 
+template <class T>
+class ASC {
+public:
+	bool operator() (const T& t1, const T& t2) const { return t1 < t2; }
+};
+
+template <class T>
+class EQ { // EE -> EQ!
+public:
+	bool operator() (const T& t1, const T& t2) const { return t1 == t2; }
+};
 
 #include <vector>
 #include <queue>
