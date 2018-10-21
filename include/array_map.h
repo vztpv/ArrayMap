@@ -417,8 +417,8 @@ namespace wiz {
 				}
 
 				if (!IsNULL(x_idx) && !hint && eq(key.first, tree->arr[x_idx].first)) {
-					tree->arr[x_idx].first = std::move(key.first);
-					tree->arr[x_idx].second = std::move(key.second);
+					//tree->arr[x_idx].first = std::move(key.first);
+					//tree->arr[x_idx].second = std::move(key.second);
 					return x_idx;
 				}
 			}
@@ -576,8 +576,8 @@ namespace wiz {
 				}
 
 				if (!IsNULL(x_idx) && !hint && eq(key.first, tree->arr[x_idx].first)) {
-					tree->arr[x_idx].first = std::move(key.first);
-					tree->arr[x_idx].second = std::move(key.second);
+					//tree->arr[x_idx].first = std::move(key.first);
+					//tree->arr[x_idx].second = std::move(key.second);
 					return x_idx;
 				}
 			}
