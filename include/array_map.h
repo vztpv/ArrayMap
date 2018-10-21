@@ -685,11 +685,15 @@ namespace wiz {
 
 			// remove dupplication? but no remove last dup?
 
-			for (long long i = 0; i < tree->remain_list.size(); ++i) {
-				if (i < tree->remain_list.size() - 1 && tree->remain_list[i] == tree->remain_list[i + 1]) {
+			bool first = true;
+			T before;
+			for (auto&& x : tree->remain_list) {
+				if (!first && before == x) {
 					continue;
 				}
-				INSERT(tree, std::move(tree->remain_list[i]));
+				before = x;
+				first = false;
+				INSERT(tree, std::move(x));
 			}
 
 			tree->remain_list.clear();
