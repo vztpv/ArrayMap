@@ -10,7 +10,7 @@ ArrayMap : std::vector + Red-Black Tree
   1. insert (lazy-insert) 
   2. update (It is better to postpone the postponed insertion and postpone as much as possible) 
   3. remove (remove item, O (log (n)), recycle using flag without shifting when removing, more testing required) 
-  4. Note that there are iterators, but they do not traverse in the sorted order when traversing! 
+  4. Note that there are iterators, but they do not traverse in the sorted order! 
   5. It seems that quick sort should use parallel to get good performance.
   
 # 특징
