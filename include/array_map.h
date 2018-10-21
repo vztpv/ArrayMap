@@ -3,6 +3,7 @@
 
 #include "global.h"
 #include <vector>
+#include <queue>
 #include <algorithm>
 #include <utility>
 #include <execution>
@@ -283,7 +284,7 @@ namespace wiz {
 			COMP2 eq;
 
 			long long _count = 0;
-			const long long _count_max = 2;
+			const long long _count_max = 1;
 
 			long long y_idx = 0;
 			long long x_idx = tree->root;
@@ -308,7 +309,8 @@ namespace wiz {
 					else if (comp(key, chk[iter_min].key)) {
 						x_idx = iter_min;
 
-						pass = 1;
+						pass += 1;
+						break;
 					}
 					iter_min2 = iter_min;
 					iter_min = chk[iter_min].min_next;
@@ -325,7 +327,8 @@ namespace wiz {
 					else if (comp(chk[iter_max].key, key)) {
 						x_idx = iter_max;
 
-						pass = 2;
+						pass += 2;
+						break;
 					}
 					iter_max2 = iter_max;
 					iter_max = chk[iter_max].max_next;
@@ -355,7 +358,7 @@ namespace wiz {
 				}
 
 				if (!IsNULL(x_idx) && !hint && eq(key, tree->arr[x_idx].key)) {
-					//tree->arr[x_idx].key = key;
+					tree->arr[x_idx].key = std::move(key);
 					return x_idx;
 				}
 			}
@@ -365,15 +368,15 @@ namespace wiz {
 			if (0 == tree->dead_list) {
 				tree->arr.push_back(RB_Node<T>());
 				tree->arr.back().id = now;
-				tree->arr.back().key = key;
+				tree->arr.back().key = std::move(key);
 
 				z = &(tree->arr.back());
 
-				if (1 == pass) {
+				if (1 == pass & 1) {
 					tree->min_list = now;
 					arr[now].min_before = tree->min_list;
 				}
-				else if (2 == pass) {
+				if (2 == pass & 2) {
 					tree->max_list = now;
 					arr[now].max_before = tree->max_list;
 				}
@@ -386,7 +389,7 @@ namespace wiz {
 
 				tree->arr[now].Clear();
 				tree->arr[now].id = id;
-				tree->arr[now].key = key;
+				tree->arr[now].key = std::move(key);
 				tree->arr[now].next = next;
 				tree->arr[now].dead = false;
 
@@ -435,7 +438,7 @@ namespace wiz {
 			COMP2 eq;
 
 			long long _count = 0;
-			const long long _count_max = 2;
+			const long long _count_max = 1;
 
 			long long y_idx = 0;
 			long long x_idx = tree->root;
@@ -460,7 +463,8 @@ namespace wiz {
 					else if (comp(key, chk[iter_min].key)) {
 						x_idx = iter_min;
 
-						pass = 1;
+						pass += 1;
+						break;
 					}
 					iter_min2 = iter_min;
 					iter_min = chk[iter_min].min_next;
@@ -477,7 +481,8 @@ namespace wiz {
 					else if (comp(chk[iter_max].key, key)) {
 						x_idx = iter_max;
 
-						pass = 2;
+						pass += 2;
+						break;
 					}
 					iter_max2 = iter_max;
 					iter_max = chk[iter_max].max_next;
@@ -507,7 +512,7 @@ namespace wiz {
 				}
 
 				if (!IsNULL(x_idx) && !hint && eq(key, tree->arr[x_idx].key)) {
-					//tree->arr[x_idx].key = std::move(key);
+					tree->arr[x_idx].key = std::move(key);
 					return x_idx;
 				}
 			}
@@ -521,11 +526,11 @@ namespace wiz {
 
 				z = &(tree->arr.back());
 
-				if (1 == pass) {
+				if (1 == pass & 1) {
 					tree->min_list = now;
 					arr[now].min_before = tree->min_list;
 				}
-				else if (2 == pass) {
+				if (2 == pass & 2) {
 					tree->max_list = now;
 					arr[now].max_before = tree->max_list;
 				}
@@ -599,11 +604,16 @@ namespace wiz {
 			}
 
 			std::sort(std::execution::par, tree->remain_list.begin(), tree->remain_list.end());
+
+			// todo - remove dup? but no remove last dup?
+
 			for (auto&& x : tree->remain_list) {
 				INSERT(tree, std::move(x));
 			}
+
 			tree->remain_list.clear();
 		}
+
 		RB_Node<T>* MAXIMUM(RB_Node<T>* x) {
 			while (!IsNULL(x->right)) {
 				x = &arr[x->right];
@@ -925,7 +935,7 @@ namespace wiz {
 		}
 		void insert(std::pair<Key, Data>&& value) {
 			lazy_insert(value);
-
+			
 			//	arr.RealInsert();
 
 			//	arr.Insert(wiz::Pair<Key, Data>(value.first, value.second));
