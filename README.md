@@ -11,7 +11,7 @@ ArrayMap : std::vector + Red-Black Tree
   2. update (It is better to postpone the postponed insertion and postpone as much as possible) 
   3. remove (remove item, O (log (n)), recycle using flag without shifting when removing, more testing required) 
   4. Note that there are iterators, but they do not traverse in the sorted order! 
-  5. It seems that quick sort should use parallel to get good performance.
+  5. It seems that you should use parallel sort to get good performance.
   
 # 특징
   1. 정렬된 데이터를 차례대로 삽입하는 경우 속도가 std::map보다 빠르다.
