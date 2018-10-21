@@ -686,9 +686,9 @@ namespace wiz {
 			// remove dupplication? but no remove last dup?
 
 			bool first = true;
-			T before;
+			std::pair<Key, Data> before;
 			for (auto&& x : tree->remain_list) {
-				if (!first && before == x) {
+				if (!first && before.first == x.first) {
 					continue;
 				}
 				before = x;
