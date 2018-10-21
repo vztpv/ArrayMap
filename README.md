@@ -1,16 +1,17 @@
 # ArrayMap
 ArrayMap : std::vector + Red-Black Tree
 # Characteristic
-  When inserting sorted data in sequence (at first), the speed is faster than std :: map. 
-  When you call the insert function, the value is not stored in the tree. We postpone as much as possible. Add it when you really need to add it to the tree, sort the collected data using std :: sort and add it to the tree. 
-  It is best to just use the insert several times at a time.
-  Since it is based on vector, it takes less time to delete than std :: map.
+  1. When inserting sorted data in sequence (at first), the speed is faster than std :: map. 
+  2. When you call the insert function, the value is not stored in the tree. We postpone as much as possible. 
+  3. Add it when you really need to add it to the tree, sort the collected data using std :: sort and add it to the tree. 
+  4. It is best to just use the insert several times at a time.
+  5. Since it is based on vector, it takes less time to delete than std :: map.
 # Features and Cautions
-  insert (lazy-insert) 
-  update (It is better to postpone the postponed insertion and postpone as much as possible) 
-  remove (remove item, O (log (n)), recycle using flag without shifting when removing, more testing required) 
-  Note that there are iterators, but they do not traverse in the sorted order when traversing! 
-  It seems that quick sort should use parallel to get good performance.
+  1. insert (lazy-insert) 
+  2. update (It is better to postpone the postponed insertion and postpone as much as possible) 
+  3. remove (remove item, O (log (n)), recycle using flag without shifting when removing, more testing required) 
+  4. Note that there are iterators, but they do not traverse in the sorted order when traversing! 
+  5. It seems that quick sort should use parallel to get good performance.
   
 # 특징
   1. 정렬된 데이터를 차례대로 삽입하는 경우 속도가 std::map보다 빠르다.
