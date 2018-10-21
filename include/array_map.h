@@ -372,11 +372,11 @@ namespace wiz {
 
 				z = &(tree->arr.back());
 
-				if (1 == pass & 1) {
+				if (1 == ( pass & 1 )) {
 					tree->min_list = now;
 					arr[now].min_before = tree->min_list;
 				}
-				if (2 == pass & 2) {
+				if (2 == ( pass & 2 )) {
 					tree->max_list = now;
 					arr[now].max_before = tree->max_list;
 				}
@@ -395,11 +395,11 @@ namespace wiz {
 
 				z = &(tree->arr[now]);
 
-				if (1 == pass) {
+				if (1 == ( pass & 1 )) {
 					tree->min_list = now;
 					arr[now].min_before = tree->min_list;
 				}
-				else if (2 == pass) {
+				if (2 == ( pass & 2 )) {
 					tree->max_list = now;
 					arr[now].max_before = tree->max_list;
 				}
@@ -526,11 +526,11 @@ namespace wiz {
 
 				z = &(tree->arr.back());
 
-				if (1 == pass & 1) {
+				if (1 == ( pass & 1 )) {
 					tree->min_list = now;
 					arr[now].min_before = tree->min_list;
 				}
-				if (2 == pass & 2) {
+				if (2 == ( pass & 2 )) {
 					tree->max_list = now;
 					arr[now].max_before = tree->max_list;
 				}
@@ -549,11 +549,11 @@ namespace wiz {
 
 				z = &(tree->arr[now]);
 
-				if (1 == pass) {
+				if (1 == ( pass & 1 )) {
 					tree->min_list = now;
 					arr[now].min_before = tree->min_list;
 				}
-				else if (2 == pass) {
+				if (2 == ( pass & 2 )) {
 					tree->max_list = now;
 					arr[now].max_before = tree->max_list;
 				}
