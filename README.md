@@ -1,7 +1,7 @@
 # ArrayMap
 ArrayMap : std::vector + Red-Black Tree
 # Characteristic
-  1. When inserting sorted data in sequence (at first), the speed is faster than std :: map. 
+  1. When inserting many(>100000) sorted data in sequence (at first), the speed is faster than std :: map. 
   2. When you call the insert function, the value is not stored in the tree. We postpone as much as possible. 
   3. Add it when you really need to add it to the tree, sort the collected data using std :: sort and add it to the tree. 
   4. It is best to just use the insert several times at a time.
