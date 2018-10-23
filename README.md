@@ -14,7 +14,7 @@ ArrayMap : std::vector + Red-Black Tree
   5. It seems that you should use parallel sort to get good performance.
   
 # 특징
-  1. 정렬된 데이터를 차례대로 삽입하는 경우 속도가 std::map보다 빠르다.
+  1. 정렬된 데이터(>100000)를 차례대로 삽입하는 경우 속도가 std::map보다 빠르다.
   2. insert함수를 호출했을 때 바로 트리에 값이 저장되지 않는다. 최대한으로 미룬다. 
   3. 실제로 트리에 추가해야 할 떄 추가하며, std::sort를 이용해 모아 놓은 데이터들을 정렬한 후 트리에 추가한다.
   4. 한번에 insert를 여러 번 하고 나서 사용하기만 하는것이 가장 좋다. (만들 떄 가정한 상황이다)
