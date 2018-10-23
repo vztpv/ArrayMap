@@ -404,8 +404,12 @@ namespace wiz {
 				}
 
 
+				if (hint) {
+					y_idx = hint;
+				}
+				
 				while (//!IsNULL(tree->arr[x_idx]) &&
-					!IsNULL(x_idx) && !hint
+					!IsNULL(x_idx) //&& !hint
 					)
 				{
 					y_idx = x_idx;
@@ -423,11 +427,8 @@ namespace wiz {
 					}
 				}
 
-				if (hint) {
-					y_idx = hint;
-				}
 
-				if (!IsNULL(x_idx) && !hint && eq(key.first, tree->arr[x_idx].first)) {
+				if (!IsNULL(x_idx) && eq(key.first, tree->arr[x_idx].first)) {
 					//tree->arr[x_idx].first = std::move(key.first);
 					//tree->arr[x_idx].second = std::move(key.second);
 					return x_idx;
@@ -562,9 +563,13 @@ namespace wiz {
 					iter_max = chk[iter_max].max_next;
 				}
 
+				if (hint) {
+					y_idx = hint;
+				}
+
 
 				while (//!IsNULL(tree->arr[x_idx]) &&
-					!IsNULL(x_idx) && !hint
+					!IsNULL(x_idx) //&& !hint
 					)
 				{
 					y_idx = x_idx;
@@ -582,11 +587,8 @@ namespace wiz {
 					}
 				}
 
-				if (hint) {
-					y_idx = hint;
-				}
-
-				if (!IsNULL(x_idx) && !hint && eq(key.first, tree->arr[x_idx].first)) {
+				
+				if (!IsNULL(x_idx) && eq(key.first, tree->arr[x_idx].first)) {
 					//tree->arr[x_idx].first = std::move(key.first);
 					//tree->arr[x_idx].second = std::move(key.second);
 					return x_idx;
