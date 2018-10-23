@@ -405,7 +405,7 @@ namespace wiz {
 
 
 				if (hint) {
-					y_idx = hint;
+					x_idx = hint;
 				}
 				
 				while (//!IsNULL(tree->arr[x_idx]) &&
@@ -564,7 +564,7 @@ namespace wiz {
 				}
 
 				if (hint) {
-					y_idx = hint;
+					x_idx = hint;
 				}
 
 
