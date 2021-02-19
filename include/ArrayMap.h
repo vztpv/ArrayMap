@@ -495,7 +495,7 @@ namespace wiz {
 				}
 			}
 			else if (comp(z->first, tree->arr[y_idx].first)) { // comp3? 
-				
+
 				tree->arr[y_idx].left = z->id;//
 			}
 			else {
@@ -693,7 +693,7 @@ namespace wiz {
 
 			while (!que.empty()) {
 				int id = que.front(); que.pop();
-				
+
 				std::cout << tree->arr[id].p << " " << id << "\n";
 
 				if (!IsNULL(tree->arr[id].left)) {
@@ -714,7 +714,7 @@ namespace wiz {
 		class Range
 		{
 		public:
-			int left; 
+			int left;
 			int right;
 			int hint;
 		public:
@@ -750,7 +750,7 @@ namespace wiz {
 				//INSERT(tree, std::move(x));
 			}
 			tree->remain_list.clear();
-	
+
 			std::queue<Range> que;
 			que.push(Range(0, vec.size() - 1, 0));
 
@@ -1151,9 +1151,9 @@ namespace wiz {
 		void insert(std::pair<Key, Data>&& value) {
 			lazy_insert(value);
 
-				//arr.RealInsert();
+			//arr.RealInsert();
 
-			//	arr.Insert(wiz::Pair<Key, Data>(value.first, value.second));
+		//	arr.Insert(wiz::Pair<Key, Data>(value.first, value.second));
 		}
 		void update()
 		{
@@ -1195,7 +1195,7 @@ namespace wiz {
 			arr.RealInsert();
 
 			RB_Node<Key, Data>* idx = arr.Search(key);
-			
+
 			if (0 == idx->id) {
 				long long _idx = arr.Insert(std::pair<Key, Data>(key, Data())); //// return positon? - to do
 				return arr.DataVal(_idx);
@@ -1208,7 +1208,7 @@ namespace wiz {
 		const Data& operator[](const Key& key) const {
 			arr.RealInsert();
 
-			RB_Node<Key, Data>* idx = arr.Search(wiz::Pair<Key, Data>(key, Data()));
+			RB_Node<Key, Data>* idx = arr.Search(key);
 			if (0 == idx->id) {
 				//long long _idx = arr.Insert(wiz::Pair<Key, Data>(key, Data())); //// return positon? - to do
 				//return arr.DataVal(_idx);
